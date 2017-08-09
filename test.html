@@ -1,0 +1,21 @@
+<script>
+var test = function(){
+}
+var my = function(){
+	this.a = function(){
+		alert(this === mytest2);
+	}
+}
+
+var mytest = new my();
+test.prototype = mytest;
+
+var mytest2 = new test();
+mytest2.a(); 
+
+var mytest = function(context){
+	alert(context.getAttribute('id'));
+	alert(this === window);
+}
+</script>
+<div id="test" onclick="mytest(this)">aaaa</div> 
